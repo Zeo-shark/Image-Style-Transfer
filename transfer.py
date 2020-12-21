@@ -34,5 +34,18 @@ STYLE_WEIGHT = 1e3
 TVD_WEIGHT = 1e-2
 
 
+def resize(img):
+    if FLAGS.resize <= 0:
+        return img
+    width, height = img.size
+    ratio = min(width, height) / FLAGS.resize
+    if width < height:
+        width = FLAGS.resize
+        height = int(height / ratio)
+    else:
+        height = FLAGS.resize
+        width = int(width / ratio)
+    return img.resize((width, height))
+
 
 
