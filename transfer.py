@@ -25,6 +25,13 @@ tf.app.flags.DEFINE_string('resize', -1, 'Resize shorter dim of content img to t
 
 IMAGENET_MEAN = [123.68, 116.779, 103.939]
 
+STYLE_LAYERS = ['vgg_16/conv1/conv1_1', 'vgg_16/conv2/conv2_1', 'vgg_16/conv3/conv3_1', 'vgg_16/conv4/conv4_1',
+                'vgg_16/conv5/conv5_1']
+CONTENT_LAYERS = ['vgg_16/conv4/conv4_2', 'vgg_16/conv5/conv5_2']
+
+CONTENT_WEIGHT = 1
+STYLE_WEIGHT = 1e3
+TVD_WEIGHT = 1e-2
 
 
 
