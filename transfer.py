@@ -48,4 +48,18 @@ def resize(img):
     return img.resize((width, height))
 
 
+def match_luminance(content, style):
+    content = content / 255
+    style = style / 255
+    content = color.rgb2yiq(content)
+    style = color.rgb2yiq(style)
+    mean_c = np.mean(content)
+    mean_s = np.mean(style)
+    stddev_c = np.std(content)
+    stddev_s = np.std(style)
+    style = (stddev_c / stddev_s) * (style - mean_s) + mean_c
+    style = np.clip(color.yiq2rgb(style), 0, 1) * 255
+    return style
+
+
 
