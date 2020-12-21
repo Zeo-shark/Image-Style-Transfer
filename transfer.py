@@ -167,4 +167,7 @@ def main(args):
     imsave(FLAGS.result_file, img)
 
 
+if __name__ == '__main__':
+    tf.app.run()
+
 
